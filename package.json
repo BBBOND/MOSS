@@ -1,7 +1,7 @@
 {
   "name": "moss",
   "productName": "MOSS",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "MOSS - 基于本地模型的AI聊天助手，模型存储在~/.moss/models",
   "main": ".vite/build/main.js",
   "scripts": {
