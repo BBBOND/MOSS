@@ -193,7 +193,6 @@ window.electronAPI.model.onModelLoadingProgress((progress) => {
 - [ ] 📂 对话历史管理
 - [ ] 🔌 插件系统
 - [ ] 🚀 模型推荐引擎
-- [ ] 📱 移动端适配
 
 ## 🤝 贡献
 
@@ -212,8 +211,8 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 ## 👨‍💻 作者
 
 **JinWeiyang**
-- 📧 Email: jwy8645@163.com
-- 🐙 GitHub: [你的GitHub用户名]
+- 📧 Email: jwy8645@gmail.com
+- 🐙 GitHub: [BBBOND](https://github.com/BBBOND)
 
 ---
 

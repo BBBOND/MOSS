@@ -193,7 +193,6 @@ window.electronAPI.model.onModelLoadingProgress((progress) => {
 - [ ] 📂 Chat history management
 - [ ] 🔌 Plugin system
 - [ ] 🚀 Model recommendation engine
-- [ ] 📱 Mobile adaptation
 
 ## 🤝 Contributing
 
@@ -211,9 +210,9 @@ MIT License - See [LICENSE](LICENSE) file for details
 
 ## 👨‍💻 Author
 
-**BBBOND**
+**JinWeiyang**
 - 📧 Email: jwy8645@gmail.com
-- 🐙 GitHub: [Your GitHub Username]
+- 🐙 GitHub: [BBBOND](https://github.com/BBBOND)
 
 ---
 
