@@ -1,6 +1,7 @@
 import { ipcMain, shell, dialog } from 'electron';
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 import log from 'electron-log';
 
 // 使用动态 import 来加载 node-llama-cpp
@@ -32,9 +33,9 @@ let modelState: ModelState = {
 
 // 获取默认模型目录路径
 function getDefaultModelsDirectory(): string {
-  // 统一使用项目根目录下的 models 文件夹，方便管理
-  const projectRoot = process.cwd();
-  return path.join(projectRoot, 'models');
+  // 使用用户主目录下的 .moss/models 文件夹，符合应用程序惯例
+  const homeDir = os.homedir();
+  return path.join(homeDir, '.moss', 'models');
 }
 
 // 动态加载 node-llama-cpp 模块

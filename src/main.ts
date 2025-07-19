@@ -53,14 +53,16 @@ const createWindow = () => {
     mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if (!app.isPackaged) {
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
+  }
   
   // 监听窗口事件
   mainWindow.on('closed', () => {
     log.info('主窗口已关闭');
   });
-  
+
   mainWindow.on('focus', () => {
     log.debug('主窗口获得焦点');
   });

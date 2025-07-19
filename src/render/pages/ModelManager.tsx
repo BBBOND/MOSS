@@ -542,7 +542,7 @@ const ModelManager: React.FC = () => {
                 <div style={{
                   fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
                 }}>
-                  请将 .gguf 格式的模型文件放入默认目录中
+                  请将 .gguf 格式的模型文件放入默认目录 (~/.moss/models) 中
                 </div>
               </div>
             )}
@@ -692,7 +692,7 @@ const ModelManager: React.FC = () => {
             lineHeight: '1.6',
           }}>
             <p style={{ margin: '0 0 0.75rem 0' }}>
-              <strong>方式一（推荐）：</strong>将 .gguf 格式的模型文件放入默认目录，然后从列表中选择加载
+              <strong>方式一（推荐）：</strong>将 .gguf 格式的模型文件放入默认目录 (~/.moss/models)，然后从列表中选择加载
             </p>
             <p style={{ margin: '0 0 0.75rem 0' }}>
               <strong>方式二：</strong>使用文件选择器手动选择任意位置的模型文件

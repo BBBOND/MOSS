@@ -2,7 +2,7 @@
   "name": "moss",
   "productName": "MOSS",
   "version": "1.0.0",
-  "description": "MOSS - 基于本地GGUF模型的AI聊天助手",
+  "description": "MOSS - 基于本地模型的AI聊天助手，模型存储在~/.moss/models",
   "main": ".vite/build/main.js",
   "scripts": {
     "start": "electron-forge start",

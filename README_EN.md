@@ -13,6 +13,21 @@
 - 🎯 **Dual Options**: Default directory + manual selection for model loading
 - 🔧 **Easy to Use**: One-click installation, ready to use out of the box
 
+## 📍 Important Notice
+
+**MOSS v1.0+ has changed the default model directory to `~/.moss/models`** for better compliance with application data storage conventions.
+
+If you previously stored model files in the project root `./models/` folder, please run the following commands to migrate:
+
+```bash
+# Create new default directory
+mkdir -p ~/.moss/models
+
+# Migrate existing model files (if any)
+mv ./models/*.gguf ~/.moss/models/ 2>/dev/null || true
+mv ./models/*.bin ~/.moss/models/ 2>/dev/null || true
+```
+
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
@@ -25,11 +40,11 @@ npm install
 
 #### Method 1 (Recommended): Default Directory
 ```bash
-# Create models directory
-mkdir models
+# Create models directory (app will auto-create)
+mkdir -p ~/.moss/models
 
-# Put .gguf files into models folder
-cp your-model.gguf ./models/
+# Put .gguf files into default directory
+cp your-model.gguf ~/.moss/models/
 ```
 
 #### Method 2: Any Location
@@ -69,10 +84,13 @@ MOSS/
 │   ├── main.ts            # Electron main process entry
 │   ├── preload.ts         # Secure IPC preload script
 │   └── renderer.tsx       # React renderer process entry
-├── models/                # Local model files directory
 ├── scripts/               # Utility scripts
 │   └── view-logs.js       # Log viewer
 └── package.json
+
+User Data Directory:
+~/.moss/
+└── models/                # Local model files directory
 ```
 
 ## 🛠 Tech Stack
