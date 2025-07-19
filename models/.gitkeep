@@ -1,0 +1,21 @@
+# 此文件用于确保 models 目录被 Git 追踪
+# 请将您的 .gguf 或 .bin 格式的模型文件放置在此目录中
+
+# This file ensures the models directory is tracked by Git
+# Please place your .gguf or .bin format model files in this directory
+
+# 推荐的模型文件来源 / Recommended Model Sources:
+# - Hugging Face: https://huggingface.co/models
+# - 搜索 "GGUF" 格式的模型 / Search for "GGUF" format models
+# - 常用模型 / Popular models: Llama, Mistral, Qwen, CodeLlama, etc.
+
+# 使用说明 / Usage Instructions:
+# 1. 下载 .gguf 格式的模型文件 / Download .gguf format model files
+# 2. 将文件放入此目录 / Place files in this directory  
+# 3. 在应用中选择加载模型 / Select and load model in the application
+# 4. 开始与 MOSS 对话 / Start chatting with MOSS
+
+# 注意事项 / Notes:
+# - 大型模型需要充足的内存 / Large models require sufficient memory
+# - 建议使用量化版本以节省空间 / Recommended to use quantized versions to save space
+# - 模型文件较大，请确保有足够的磁盘空间 / Model files are large, ensure sufficient disk space 

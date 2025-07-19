@@ -1,0 +1,71 @@
+{
+  "name": "moss",
+  "productName": "MOSS",
+  "version": "1.0.0",
+  "description": "MOSS - 基于本地GGUF模型的AI聊天助手",
+  "main": ".vite/build/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx .",
+    "logs": "node scripts/view-logs.js",
+    "logs:open": "open ~/Library/Logs/moss",
+    "logs:tail": "tail -f ~/Library/Logs/moss/main.log",
+    "icon:generate": "node scripts/generate-icons.js",
+    "icon:install": "npm install sharp --save-dev && npm run icon:generate",
+    "icon:copy": "cp assets/icons/icon.png .",
+    "icon:setup": "npm run icon:generate && npm run icon:copy"
+  },
+  "keywords": [
+    "ai",
+    "llama",
+    "gguf",
+    "chat",
+    "local",
+    "electron",
+    "moss"
+  ],
+  "author": {
+    "name": "BBBOND",
+    "email": "jwy8645@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-rpm": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-fuses": "^7.8.1",
+    "@electron-forge/plugin-vite": "^7.8.1",
+    "@electron/fuses": "^1.8.0",
+    "@types/electron-squirrel-startup": "^1.0.2",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "electron": "37.2.3",
+    "eslint": "^8.57.1",
+    "eslint-plugin-import": "^2.32.0",
+    "sharp": "^0.34.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.19"
+  },
+  "dependencies": {
+    "@node-llama-cpp/mac-arm64-metal": "^3.10.0",
+    "electron-log": "^5.4.1",
+    "electron-squirrel-startup": "^1.0.1",
+    "node-llama-cpp": "^3.10.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.7.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1"
+  }
+}
