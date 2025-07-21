@@ -7,7 +7,7 @@ const fs = require('fs');
 // 获取日志目录
 function getLogDirectory() {
   const platform = os.platform();
-  const appName = 'unraid-vite';
+  const appName = 'MOSS';
   
   switch (platform) {
     case 'darwin': // macOS
@@ -34,7 +34,7 @@ function formatFileSize(bytes) {
 function main() {
   const logDir = getLogDirectory();
   
-  console.log('🔍 Unraid-Vite 日志查看器\n');
+  console.log('🔍 MOSS 日志查看器\n');
   console.log(`📁 日志目录: ${logDir}\n`);
   
   // 检查日志目录是否存在

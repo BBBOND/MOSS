@@ -1,8 +1,10 @@
-import { contextBridge, ipcRenderer } from 'electron';
+import { contextBridge, ipcRenderer } from 'electron'
+import { electronAPI } from '@electron-toolkit/preload'
 
-// 模型相关的 API
-const modelAPI = {
-  // 获取可用的模型列表
+// Custom APIs for renderer
+export const api = {
+
+  // 获取可用的模型列表 
   getAvailableModels: () => ipcRenderer.invoke('get-available-models'),
   
   // 选择模型文件
@@ -58,18 +60,25 @@ const modelAPI = {
     ipcRenderer.removeAllListeners('chat-generation-complete');
     ipcRenderer.removeAllListeners('chat-generation-error');
   }
-};
+}
 
-// 暴露 API 到渲染进程
-contextBridge.exposeInMainWorld('electronAPI', {
-  model: modelAPI
-});
-
-// 类型声明
-declare global {
-  interface Window {
-    electronAPI: {
-      model: typeof modelAPI;
-    };
+// Use `contextBridge` APIs to expose Electron APIs to
+// renderer only if context isolation is enabled, otherwise
+// just add to the DOM global.
+if (process.contextIsolated) {
+  try {
+    contextBridge.exposeInMainWorld('electron', electronAPI)
+    contextBridge.exposeInMainWorld('moss', {
+      model: api
+    })
+  } catch (error) {
+    console.error(error)
+  }
+} else {
+  // @ts-ignore (define in dts)
+  window.electron = electronAPI
+  // @ts-ignore (define in dts)
+  window.moss = {
+    model: api
   }
 }

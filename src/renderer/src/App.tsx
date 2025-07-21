@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ModelManager from '@/render/pages/ModelManager';
-import ChatInterface from '@/render/pages/ChatInterface';
+import ModelManager from '@renderer/pages/ModelManager';
+import ChatInterface from '@renderer/pages/ChatInterface';
 
 type Page = 'model' | 'chat';
 

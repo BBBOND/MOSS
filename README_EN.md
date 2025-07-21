@@ -154,19 +154,19 @@ npm run logs:tail
 
 ```typescript
 // Model management
-const models = await window.electronAPI.model.getAvailableModels();
-const result = await window.electronAPI.model.loadModel(modelPath);
-const status = await window.electronAPI.model.getModelStatus();
+const models = await window.moss.model.getAvailableModels();
+const result = await window.moss.model.loadModel(modelPath);
+const status = await window.moss.model.getModelStatus();
 
 // File operations
-const fileResult = await window.electronAPI.model.selectModelFile();
-await window.electronAPI.model.openDirectory(dirPath);
+const fileResult = await window.moss.model.selectModelFile();
+await window.moss.model.openDirectory(dirPath);
 
 // AI chat
-const response = await window.electronAPI.model.chatWithModel("Hello, MOSS!");
+const response = await window.moss.model.chatWithModel("Hello, MOSS!");
 
 // Event listeners
-window.electronAPI.model.onModelLoadingProgress((progress) => {
+window.moss.model.onModelLoadingProgress((progress) => {
   console.log(`${progress.stage}: ${progress.progress}%`);
 });
 ```

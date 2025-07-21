@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import MarkdownRenderer from '@/render/components/MarkdownRenderer';
+import MarkdownRenderer from '@renderer/components/MarkdownRenderer';
 
 interface Message {
   id: string;
@@ -86,7 +86,7 @@ const ChatInterface: React.FC = () => {
   // 加载模型状态
   const loadModelStatus = async () => {
     try {
-      const status = await window.electronAPI.model.getModelStatus();
+      const status = await window.moss.model.getModelStatus();
       setModelStatus({
         isLoaded: status.isLoaded,
         modelPath: status.modelPath
@@ -114,7 +114,7 @@ const ChatInterface: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const result = await window.electronAPI.model.chatWithModel(userMessage.content);
+      const result = await window.moss.model.chatWithModel(userMessage.content);
       
       if (result.success) {
         const assistantMessage: Message = {
@@ -206,21 +206,21 @@ const ChatInterface: React.FC = () => {
     const interval = setInterval(loadModelStatus, 5000);
     
     // 监听生成事件
-    window.electronAPI.model.onChatGenerationStart(() => {
+    window.moss.model.onChatGenerationStart(() => {
       setIsGenerating(true);
     });
 
-    window.electronAPI.model.onChatGenerationComplete((stats) => {
+    window.moss.model.onChatGenerationComplete((stats) => {
       setIsGenerating(false);
     });
 
-    window.electronAPI.model.onChatGenerationError(() => {
+    window.moss.model.onChatGenerationError(() => {
       setIsGenerating(false);
     });
 
     return () => {
       clearInterval(interval);
-      window.electronAPI.model.removeChatEventListeners();
+      window.moss.model.removeChatEventListeners();
     };
   }, []);
 

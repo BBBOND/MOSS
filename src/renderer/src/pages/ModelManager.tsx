@@ -33,7 +33,7 @@ const ModelManager: React.FC = () => {
   // 获取模型状态
   const fetchModelStatus = async () => {
     try {
-      const status = await window.electronAPI.model.getModelStatus();
+      const status = await window.moss.model.getModelStatus();
       setModelStatus(status);
     } catch (error) {
       console.error('获取模型状态失败:', error);
@@ -44,7 +44,7 @@ const ModelManager: React.FC = () => {
   const fetchModels = async () => {
     setIsRefreshing(true);
     try {
-      const modelList = await window.electronAPI.model.getAvailableModels();
+      const modelList = await window.moss.model.getAvailableModels();
       setModels(modelList);
     } catch (error) {
       console.error('获取模型列表失败:', error);
@@ -56,7 +56,7 @@ const ModelManager: React.FC = () => {
   // 获取模型目录路径
   const fetchModelsDirectory = async () => {
     try {
-      const directory = await window.electronAPI.model.getModelsDirectory();
+      const directory = await window.moss.model.getModelsDirectory();
       setModelsDirectory(directory);
     } catch (error) {
       console.error('获取模型目录失败:', error);
@@ -70,19 +70,19 @@ const ModelManager: React.FC = () => {
     fetchModelsDirectory();
 
     // 监听模型加载进度
-    window.electronAPI.model.onModelLoadingProgress((progress) => {
+    window.moss.model.onModelLoadingProgress((progress) => {
       setLoadingProgress(progress);
     });
 
     return () => {
-      window.electronAPI.model.removeModelLoadingProgressListener();
+      window.moss.model.removeModelLoadingProgressListener();
     };
   }, []);
 
   // 选择模型文件
   const handleSelectModelFile = async () => {
     try {
-      const result = await window.electronAPI.model.selectModelFile();
+      const result = await window.moss.model.selectModelFile();
       
       if (result.success && result.file) {
         // 将选中的文件设置为当前选中的模型
@@ -101,7 +101,7 @@ const ModelManager: React.FC = () => {
   const handleLoadModel = async (modelPath: string) => {
     try {
       setLoadingProgress({ stage: '准备加载...', progress: 0 });
-      const result = await window.electronAPI.model.loadModel(modelPath);
+      const result = await window.moss.model.loadModel(modelPath);
       
       if (result.success) {
         await fetchModelStatus();
@@ -121,7 +121,7 @@ const ModelManager: React.FC = () => {
   // 卸载模型
   const handleUnloadModel = async () => {
     try {
-      const result = await window.electronAPI.model.unloadModel();
+      const result = await window.moss.model.unloadModel();
       if (result.success) {
         await fetchModelStatus();
         setSelectedModel(null);
@@ -139,7 +139,7 @@ const ModelManager: React.FC = () => {
   const handleOpenModelsDirectory = async () => {
     if (modelsDirectory) {
       try {
-        const result = await window.electronAPI.model.openDirectory(modelsDirectory);
+        const result = await window.moss.model.openDirectory(modelsDirectory);
         if (!result.success) {
           alert(`打开目录失败: ${result.error}\n\n目录路径: ${modelsDirectory}\n\n请手动打开此目录并将 .gguf 文件放入其中。`);
         }
