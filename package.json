@@ -61,5 +61,19 @@
     "sharp": "^0.34.3",
     "typescript": "^5.8.3",
     "vite": "^7.0.5"
+  },
+  "build": {
+    "appId": "com.bbbond.moss.pc",
+    "productName": "MOSS",
+    "copyright": "Copyright © 2025 BBBOND",
+    "mac": {
+      "icon": "resources/icons/icon.icns"
+    },
+    "win": {
+      "icon": "resources/icons/icon.png"
+    },
+    "linux": {
+      "icon": "resources/icons/icon.png"
+    }
   }
 }
